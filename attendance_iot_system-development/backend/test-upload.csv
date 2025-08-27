@@ -1,0 +1,4 @@
+name,studentId,rfidId,email
+Test Student 1,STU001,RFID001,test1@example.com
+Test Student 2,STU002,RFID002,test2@example.com
+Test Student 3,STU003,RFID003,test3@example.com 

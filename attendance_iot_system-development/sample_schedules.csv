@@ -1,0 +1,6 @@
+subject_code,day,startTime,endTime,room
+101,Monday,09:00,10:00,Room 101
+102,Monday,10:00,11:00,Room 101
+103,Monday,11:00,12:00,Room 101
+101,Monday,10:00,11:00,Room 101
+103,Monday,11:00,16:00,Room 101 

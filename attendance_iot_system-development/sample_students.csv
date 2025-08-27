@@ -1,0 +1,6 @@
+name,studentId,rfidId,email
+John Doe,STU001,RFID001,john.doe@example.com
+Jane Smith,STU002,RFID002,jane.smith@example.com
+Michael Johnson,STU003,RFID003,michael.johnson@example.com
+Emily Brown,STU004,RFID004,emily.brown@example.com
+David Wilson,STU005,RFID005,david.wilson@example.com 

@@ -1,0 +1,443 @@
+{
+	"info": {
+		"_postman_id": "school-attendance-api",
+		"name": "School Attendance API",
+		"description": "Complete API collection for School Attendance System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5000/api",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "1. Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Admin User\",\n    \"email\": \"admin@example.com\",\n    \"password\": \"123456\",\n    \"role\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", "register"]
+						},
+						"description": "Register a new user"
+					}
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", "login"]
+						},
+						"description": "Login and get authentication token"
+					}
+				}
+			]
+		},
+		{
+			"name": "2. Classes",
+			"item": [
+				{
+					"name": "Create Class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Class A\",\n    \"year\": 2024,\n    \"section\": \"Morning\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/classes",
+							"host": ["{{baseUrl}}"],
+							"path": ["classes"]
+						}
+					}
+				},
+				{
+					"name": "Get All Classes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/classes",
+							"host": ["{{baseUrl}}"],
+							"path": ["classes"]
+						}
+					}
+				},
+				{
+					"name": "Get Class by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/classes/{{classId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["classes", "{{classId}}"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "3. Subjects",
+			"item": [
+				{
+					"name": "Create Subject",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Mathematics\",\n    \"code\": \"MATH101\",\n    \"description\": \"Basic Mathematics\",\n    \"weeklyHours\": 5,\n    \"totalHours\": 60,\n    \"semester\": 1,\n    \"year\": 2024\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/subjects",
+							"host": ["{{baseUrl}}"],
+							"path": ["subjects"]
+						}
+					}
+				},
+				{
+					"name": "Get All Subjects",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/subjects",
+							"host": ["{{baseUrl}}"],
+							"path": ["subjects"]
+						}
+					}
+				},
+				{
+					"name": "Update Subject",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Advanced Mathematics\",\n    \"description\": \"Updated description\",\n    \"weeklyHours\": 6,\n    \"totalHours\": 72\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/subjects/{{subjectId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["subjects", "{{subjectId}}"]
+						}
+					}
+				},
+				{
+					"name": "Delete Subject",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/subjects/{{subjectId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["subjects", "{{subjectId}}"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "4. Students",
+			"item": [
+				{
+					"name": "Create Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Doe\",\n    \"studentId\": \"STU001\",\n    \"class\": \"{{classId}}\",\n    \"rfidTag\": \"1234567890\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/students",
+							"host": ["{{baseUrl}}"],
+							"path": ["students"]
+						}
+					}
+				},
+				{
+					"name": "Get All Students",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/students",
+							"host": ["{{baseUrl}}"],
+							"path": ["students"]
+						}
+					}
+				},
+				{
+					"name": "Get Student by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/students/{{studentId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["students", "{{studentId}}"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "5. Schedules",
+			"item": [
+				{
+					"name": "Create Schedule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"class\": \"{{classId}}\",\n    \"subject\": \"{{subjectId}}\",\n    \"day\": \"Monday\",\n    \"startTime\": \"09:00\",\n    \"endTime\": \"10:30\",\n    \"room\": \"Room 101\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/schedules",
+							"host": ["{{baseUrl}}"],
+							"path": ["schedules"]
+						}
+					}
+				},
+				{
+					"name": "Get All Schedules",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/schedules",
+							"host": ["{{baseUrl}}"],
+							"path": ["schedules"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "6. Attendance",
+			"item": [
+				{
+					"name": "Record Attendance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"student\": \"{{studentId}}\",\n    \"schedule\": \"{{scheduleId}}\",\n    \"status\": \"present\",\n    \"date\": \"2024-03-15\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/attendance",
+							"host": ["{{baseUrl}}"],
+							"path": ["attendance"]
+						}
+					}
+				},
+				{
+					"name": "Get Subject Attendance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/subjects/{{subjectId}}/attendance",
+							"host": ["{{baseUrl}}"],
+							"path": ["subjects", "{{subjectId}}", "attendance"]
+						}
+					}
+				},
+				{
+					"name": "Get Student Subject Attendance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/subjects/{{subjectId}}/attendance/{{studentId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["subjects", "{{subjectId}}", "attendance", "{{studentId}}"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "RFID Attendance",
+			"item": [
+				{
+					"name": "Record RFID Scan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rfidId\": \"123456789\",\n    \"deviceId\": \"65f1a2b3c4d5e6f7g8h9i0j1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/attendance/scan",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "attendance", "scan"]
+						},
+						"description": "Record attendance using RFID scan. Requires valid RFID ID and device ID."
+					}
+				},
+				{
+					"name": "Get Recent Scans",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/attendance/recent-scans",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "attendance", "recent-scans"]
+						},
+						"description": "Get the 10 most recent attendance records"
+					}
+				}
+			]
+		}
+	]
+} 

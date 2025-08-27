@@ -1,0 +1,21 @@
+name,studentId,rfidId,email
+Alice Smith,STU0001,RFID0001A,alice@example.com
+Bob Johnson,STU0002,RFID0002B,bob@example.com
+Carol White,STU0003,RFID0003C,carol@example.com
+David Brown,STU0004,RFID0004D,david@example.com
+Eva Green,STU0005,RFID0005E,eva@example.com
+Frank Black,STU0006,RFID0006F,frank@example.com
+Grace Hill,STU0007,RFID0007G,grace@example.com
+Henry Adams,STU0008,RFID0008H,henry@example.com
+Irene Lee,STU0009,RFID0009I,irene@example.com
+Jack Turner,STU0010,RFID0010J,jack@example.com
+Kelly Wright,STU0011,RFID0011K,kelly@example.com
+Liam Walker,STU0012,RFID0012L,liam@example.com
+Mia King,STU0013,RFID0013M,mia@example.com
+Noah Scott,STU0014,RFID0014N,noah@example.com
+Olivia Baker,STU0015,RFID0015O,olivia@example.com
+Paul Young,STU0016,RFID0016P,paul@example.com
+Quinn Moore,STU0017,RFID0017Q,quinn@example.com
+Ruby Allen,STU0018,RFID0018R,ruby@example.com
+Steve Harris,STU0019,RFID0019S,steve@example.com
+Tina Clark,STU0020,RFID0020T,tina@example.com
